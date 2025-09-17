@@ -46,6 +46,9 @@
   }
 }
 
+.hero-gradient {
+  background: linear-gradient(to top, #0043FC26 15%, transparent 100%);
+}
 
 /* Adds pointer cursor to buttons */
 button:not(:disabled),
