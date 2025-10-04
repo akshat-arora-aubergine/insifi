@@ -1,9 +1,12 @@
 import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import vercel from '@astrojs/vercel';
+
 export default defineConfig({
   site: "https://www.insifi.ai",
   output: "server",
+  adapter: vercel(),
   experimental: {
     fonts: [
       {
