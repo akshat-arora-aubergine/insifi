@@ -14,7 +14,9 @@ import OptimizedImage from "../../layouts/utilities/OptimizedImage.astro";
           <OptimizedImage width={40} src="/logo.svg" alt="logo" />
           <span class="text-lg text-black">INSIFI</span>
         </a>
-        <p class="my-4 text-xl lg:text-left text-center max-w-2xl text-gray-500">
+        <p
+          class="my-4 text-xl lg:text-left text-center max-w-2xl text-gray-500"
+        >
           Step into the future of data-driven decision-making. Connect your
           systems, ask questions naturally, and turn insights into
           action—powered by intelligent AI agents.
@@ -41,9 +43,7 @@ import OptimizedImage from "../../layouts/utilities/OptimizedImage.astro";
                 stroke-linecap="round"
                 stroke-linejoin="round"></path>
             </svg>
-            <p class="text-sm text-center max-w-2xl text-gray-500">
-              India
-            </p>
+            <p class="text-sm text-center max-w-2xl text-gray-500">India</p>
           </div>
           <div class="flex gap-2 justify-center items-center">
             <svg
@@ -176,7 +176,7 @@ import OptimizedImage from "../../layouts/utilities/OptimizedImage.astro";
       <!-- Toast -->
       <div
         id="toast"
-        class="hidden fixed bottom-5 left-5 p-5 rounded shadow-lg max-w-sm"
+        class="hidden fixed bottom-5 left-5 p-5 lg:left-16 lg:bottom-16 rounded shadow-lg max-w-sm"
       >
       </div>
     </div>
@@ -214,9 +214,18 @@ import OptimizedImage from "../../layouts/utilities/OptimizedImage.astro";
 
   function showToast(success = false) {
     toast.innerHTML = success
-      ? "<div class='flex gap-3'><span>✅</span><p class='text-xs'><span class='text-base font-semibold'>Request sent successfully</span><br>We have received your request. We will be in touch with you shortly.</p></div>"
+      ? `<div class="flex gap-3">
+          <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.839844" y="0.916992" width="20" height="20" rx="2" fill="#166534"/>
+            <path d="M7.92322 11.3335L9.58988 13.0002L13.7566 8.8335" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="text-xs">
+            <span class="text-base font-semibold">Request sent successfully</span><br>
+            We have received your request. We will be in touch with you shortly.
+          </p>
+        </div>`
       : "Something went wrong!";
-    toast.className = `fixed bottom-5 left-5 p-5 rounded shadow-lg max-w-sm ${success ? "bg-green-100" : "bg-red-600"}`;
+    toast.className = `fixed bottom-5 left-5 p-5 lg:left-16 lg:bottom-16 rounded shadow-lg max-w-sm ${success ? "bg-[#F0FEF5] border border-[#166534]" : "bg-red-600"}`;
     form.reset();
     setTimeout(() => {
       toast.className = "hidden";
